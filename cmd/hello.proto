@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "github.com/kalifun/protoc-gen-goutput/goutput/goutput.proto";
+option go_package = "github.com/kalifun/protoc-gen-goutput/goutput";
+
+
+service HelloService {
+    rpc HelloWorld (Hello) returns (Hello);
+}
+
+message Hello {
+    string Msg = 1;
+}

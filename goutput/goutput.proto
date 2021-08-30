@@ -1,0 +1,28 @@
+syntax = "proto3";
+package goutput;
+
+import "google/protobuf/descriptor.proto";
+option go_package = "github.com/kalifun/protoc-gen-goutput/goutput";
+
+extend google.protobuf.ServiceOptions {
+    // method GET POST
+    optional string method = 71001;
+    // description method
+    optional string info = 71002;
+    // api path
+    optional string path = 71003;
+    // speed limiter
+    optional int64 limit = 71004;
+    // api version
+    optional string version  = 71005;
+}
+
+
+extend google.protobuf.FieldOptions {
+    // required parameters
+    optional bool required = 72001;
+    // field Description
+    optional string desc = 72002;
+    // json tag
+    optional string jsontag = 72003;
+}
