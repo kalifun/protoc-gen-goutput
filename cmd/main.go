@@ -1,26 +1,24 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
 
 	"github.com/kalifun/protoc-gen-goutput/generator"
-	_ "github.com/kalifun/protoc-gen-goutput/plugin"
+	_ "github.com/kalifun/protoc-gen-goutput/goutput"
 	"google.golang.org/protobuf/proto"
 )
 
 func main() {
 	gen := generator.New()
 
-	// data, err := ioutil.ReadAll(os.Stdin)
-	filename := "hello.proto"
-	f, _ := os.Open(filename)
-	data, err := ioutil.ReadAll(f)
+	data, err := ioutil.ReadAll(os.Stdin)
+	// filename := "hello.proto"
+	// f, _ := os.Open(filename)
+	// data, err := ioutil.ReadAll(f)
 	if err != nil {
 		gen.Error(err, "read file fail")
 	}
-	fmt.Println(string(data))
 	if err := proto.Unmarshal(data, gen.Request); err != nil {
 		gen.Error(err, "unmarshal failed")
 	}

@@ -1,4 +1,5 @@
 syntax = "proto3";
+package hello;
 
 import "github.com/kalifun/protoc-gen-goutput/goutput/goutput.proto";
 option go_package = "github.com/kalifun/protoc-gen-goutput/goutput";
