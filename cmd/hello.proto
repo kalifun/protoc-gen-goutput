@@ -6,7 +6,15 @@ option go_package = "github.com/kalifun/protoc-gen-goutput/goutput";
 
 
 service HelloService {
-    rpc HelloWorld (Hello) returns (Hello);
+    rpc HelloWorld (Hello) returns (Hello) {
+        option (goutput.api) = {
+            method: "post",
+            info: "test hello",
+            path: "/v1/hello",
+            limit: 10,
+            version: "v1"
+        };
+    }
 }
 
 message Hello {
