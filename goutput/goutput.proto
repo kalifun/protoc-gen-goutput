@@ -4,17 +4,21 @@ package goutput;
 import "google/protobuf/descriptor.proto";
 option go_package = "github.com/kalifun/protoc-gen-goutput/goutput";
 
-extend google.protobuf.ServiceOptions {
+extend google.protobuf.MethodOptions {
+    Router api = 71000;
+}
+
+message Router {
     // method GET POST
-    optional string method = 71001;
+    string method = 1;
     // description method
-    optional string info = 71002;
+    string info = 2;
     // api path
-    optional string path = 71003;
+    string path = 3;
     // speed limiter
-    optional int64 limit = 71004;
+    int64 limit = 4;
     // api version
-    optional string version  = 71005;
+    string version  = 5;
 }
 
 
